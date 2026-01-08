@@ -52,13 +52,12 @@ Features:
 - Automatic translation on label creation
 - Translation preview before commit
 - On-the-fly editing of translated values
-- Multi-language consistency checks
 
 <img width="902" height="493" alt="72933873-008b-4799-a13b-fb93cbc61e86" src="https://github.com/user-attachments/assets/332555e6-d9cf-492c-a383-f0553ba40ff6" />
 
 ---
 
-## ✍️ Spell Checking and Label Corrections
+## ✍️ Spell Checking and Label Corrections Support with Apilayer Spell Checker API
 
 The extension includes built-in spell checking to detect and correct issues in label text.
 
@@ -91,7 +90,7 @@ Labels Generator is configurable through Visual Studio’s **Options** panel.
 Define:
 - Package directory
 - Master label file
-- Derived language files
+- Derived language files are selected automatically
 
 <img width="823" height="639" alt="055c822b-d0f5-453e-907c-733823acf423" src="https://github.com/user-attachments/assets/cbdaf9c3-1cdc-4c58-b108-b5e07f4d4d8d" />
 
@@ -100,6 +99,7 @@ Define:
 ### Behavior Settings
 Control how labels are created and validated:
 - Auto-fill descriptions using model name
+- Auto-fill Label ID
 - Automatic translation on creation
 - Translation validation before commit
 - Clipboard automation
@@ -112,7 +112,7 @@ Control how labels are created and validated:
 
 ### API Keys
 Configure external services:
-- Spell check API key
+- Spell check (Apilayer Spell Checker API) API key
 - Translation (DeepL) API key
 
 <img width="819" height="632" alt="f6a4620e-a977-431e-a6a0-325c3bc23469" src="https://github.com/user-attachments/assets/9fa5aea5-ce99-41be-baad-36a79a25bce3" />
@@ -125,7 +125,7 @@ Configure external services:
 Labels Generator integrates directly into Visual Studio menus for quick access to common actions:
 - Generate labels
 - Trim unused labels
-- Create new labels
+- Open Create new labels Tool Window
 
 <img width="536" height="612" alt="f9c24341-13a6-43a8-b9c5-250bcc088774" src="https://github.com/user-attachments/assets/6e6b501f-f35f-468f-b17c-ffb7224c4f14" />
 
@@ -133,8 +133,6 @@ Labels Generator integrates directly into Visual Studio menus for quick access t
 
 ## 🎯 Who Is This Extension For?
 
-- Projects with large or frequently changing label sets
-- Multi-language applications
 - Teams that want consistent label IDs and translations
 - Developers who want faster, safer label workflows
 
@@ -153,6 +151,7 @@ Labels Generator integrates directly into Visual Studio menus for quick access t
 
 - Visual Studio (compatible versions)
 - DeepL API key (for translation features)
+- Apilayer Spell Checker API (for Spell Check features)
 - Internet connection for API-based services
 
 ---
