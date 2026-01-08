@@ -95,7 +95,7 @@ Define:
 - Master label file
 - Derived language files are selected automatically
 
-<img width="823" height="639" alt="055c822b-d0f5-453e-907c-733823acf423" src="https://github.com/user-attachments/assets/cbdaf9c3-1cdc-4c58-b108-b5e07f4d4d8d" />
+<img width="739" height="631" alt="image" src="https://github.com/user-attachments/assets/671740ef-78a3-4734-87e5-96e16ac0a7c7" />
 
 ---
 
@@ -108,7 +108,8 @@ Control how labels are created and validated:
 - Clipboard automation
 - Spell check behavior
   
-<img width="821" height="633" alt="bd1dcb8c-6b23-4ba4-96ba-348a8978abe8" src="https://github.com/user-attachments/assets/30e7e4e8-5dec-4030-83a6-6d9eacbceb10" />
+<img width="738" height="631" alt="image" src="https://github.com/user-attachments/assets/7c1fbeb5-9fd7-40f9-882b-d68fae0562af" />
+
 
 
 ---
@@ -118,7 +119,8 @@ Configure external services:
 - Spell check (Apilayer Spell Checker API) API key
 - Translation (DeepL) API key
 
-<img width="819" height="632" alt="f6a4620e-a977-431e-a6a0-325c3bc23469" src="https://github.com/user-attachments/assets/9fa5aea5-ce99-41be-baad-36a79a25bce3" />
+<img width="736" height="629" alt="image" src="https://github.com/user-attachments/assets/862203a6-28e1-4462-bbfc-8f78d3d2ade7" />
+
 
 
 ---
