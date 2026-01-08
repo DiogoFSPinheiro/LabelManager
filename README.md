@@ -130,7 +130,44 @@ Labels Generator integrates directly into Visual Studio menus for quick access t
 - Trim unused labels
 - Open Create new labels Tool Window
 
-<img width="536" height="612" alt="f9c24341-13a6-43a8-b9c5-250bcc088774" src="https://github.com/user-attachments/assets/6e6b501f-f35f-468f-b17c-ffb7224c4f14" />
+
+<img width="623" height="610" alt="tools" src="https://github.com/user-attachments/assets/cb0aa763-4d92-4d18-94a0-6c7f3477bc87" />
+
+---
+
+## ⌨️ Keyboard Shortcuts (Key Bindings)
+
+Labels Generator provides **chord-based keyboard shortcuts** to access its main features quickly without leaving the editor.
+
+All shortcuts use a **two-step chord**, starting with `Ctrl + Alt + M`, followed by an action key.
+
+### Available Shortcuts
+
+| Action | Shortcut |
+|------|----------|
+| Create a new label (inline from the editor) | **Ctrl + Alt + M, N** |
+| Open the Create Label Tool Window | **Ctrl + Alt + M, L** |
+| Generate labels | **Ctrl + Alt + M, G** |
+
+### How Chord Shortcuts Work
+
+1. Press **Ctrl + Alt + M**
+2. Release the keys
+3. Press the second key (`N`, `L`, or `G`)
+
+This approach keeps shortcuts organized, avoids conflicts with existing Visual Studio bindings, and makes them easy to remember.
+
+### Customizing Shortcuts
+
+All shortcuts can be customized through Visual Studio:
+
+**Tools → Options → Environment → Keyboard**
+
+Search for commands containing with:
+
+Label
+
+You can reassign any shortcut to better match your personal workflow.
 
 ---
 
