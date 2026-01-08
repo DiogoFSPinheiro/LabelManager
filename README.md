@@ -2,6 +2,8 @@
 
 A Visual Studio extension that streamlines the creation, validation, and translation of labels — directly from your development workflow.
 
+[View on Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=DiogoPinheiro.LabelManager)
+
 ---
 
 ## 🚀 Overview
