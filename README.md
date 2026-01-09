@@ -1,6 +1,12 @@
-# Labels Generator
+# Labels Generator 
+
+
+[![Labels Generator](Images/Icon_96.png)](https://marketplace.visualstudio.com/items?itemName=DiogoPinheiro.LabelManager)
+
 
 A Visual Studio extension that streamlines the creation, validation, and translation of labels — directly from your development workflow.
+
+
 
  **[Get it on Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=DiogoPinheiro.LabelManager)**
 
@@ -27,7 +33,7 @@ Features include:
 - One-click label creation
 - Automatic copy of the label reference to the clipboard
 
-<img width="499" height="306" alt="ffef1c17-b0f8-4535-8832-7a3fb3409158" src="https://github.com/user-attachments/assets/b9ce049f-4319-411d-a50e-c40f3ef12dc6" />
+![alt text](<Images/Tool Window – Centralized Label Creation.png>)
 
 ---
 
@@ -40,9 +46,9 @@ From the editor context menu, you can:
 - Automatically insert the label reference
 - Avoid manual navigation to label files
 
-<img width="876" height="409" alt="7d4eef85-a609-40f2-b46e-de01b2b2fbfb" src="https://github.com/user-attachments/assets/ae92ef62-473a-431c-a922-8cc08b1a1754" />
+![alt text](<Images/Create Labels Directly from the Code Editor.png>)
 
-<img width="476" height="215" alt="a1a6aeab-7fc9-42eb-b664-65aa37817e1c" src="https://github.com/user-attachments/assets/5b0f4906-ac4e-4ccd-8cbe-64dd512f7370" />
+![alt text](<Images/Create Labels Directly from the Code Editor2.png>)
 
 
 ---
@@ -56,7 +62,7 @@ Features:
 - Translation preview before commit
 - On-the-fly editing of translated values
 
-<img width="902" height="493" alt="72933873-008b-4799-a13b-fb93cbc61e86" src="https://github.com/user-attachments/assets/332555e6-d9cf-492c-a383-f0553ba40ff6" />
+![alt text](<Images/Translation Support with DeepL.png>)
 
 ---
 
@@ -69,7 +75,7 @@ Capabilities:
 - Automatic fixes
 - Developer-assisted fixes 
 
-<img width="511" height="254" alt="4258f261-c9ce-4135-8888-7a04279a7f58" src="https://github.com/user-attachments/assets/6e06fd55-4c90-485b-b63e-6e455bbf414f" />
+![alt text](<Images/Spell Checking and Label Corrections.png>)
 
 
 ---
@@ -95,9 +101,8 @@ Define:
 - Master label file
 - Derived language files are selected automatically
 
-<img width="823" height="639" alt="055c822b-d0f5-453e-907c-733823acf423" src="https://github.com/user-attachments/assets/cbdaf9c3-1cdc-4c58-b108-b5e07f4d4d8d" />
+![alt text](<Images/Source of Truth.png>)
 
----
 
 ### Behavior Settings
 Control how labels are created and validated:
@@ -108,17 +113,24 @@ Control how labels are created and validated:
 - Clipboard automation
 - Spell check behavior
   
-<img width="821" height="633" alt="bd1dcb8c-6b23-4ba4-96ba-348a8978abe8" src="https://github.com/user-attachments/assets/30e7e4e8-5dec-4030-83a6-6d9eacbceb10" />
+![alt text](<Images/Behavior Settings.png>)
 
-
----
 
 ### API Keys
 Configure external services:
 - Spell check (Apilayer Spell Checker API) API key
 - Translation (DeepL) API key
 
-<img width="819" height="632" alt="f6a4620e-a977-431e-a6a0-325c3bc23469" src="https://github.com/user-attachments/assets/9fa5aea5-ce99-41be-baad-36a79a25bce3" />
+![alt text](<Images/API Keys.png>)
+
+
+### Language Mappings
+Define how source languages are mapped to target languages during translation.
+- Example: mapping `ar-sa` to `ar` ensures that content detected as `ar-sa` is translated to `ar`.
+
+
+
+![alt text](<Images/Language Mappings.PNG>)
 
 
 ---
@@ -126,12 +138,11 @@ Configure external services:
 ## 🧭 Menu Integration
 
 Labels Generator integrates directly into Visual Studio menus for quick access to common actions:
-- Generate labels
-- Trim unused labels
+- Generate labels – Useful for translating new labels in bulk when the “Automatic translation on creation” option is disabled.
+- Trim unused labels – Deletes labels that exist in slave label files but do not exist in the master file.
 - Open Create new labels Tool Window
 
-
-<img width="623" height="610" alt="tools" src="https://github.com/user-attachments/assets/cb0aa763-4d92-4d18-94a0-6c7f3477bc87" />
+![alt text](<Images/Menu Integration.png>)
 
 ---
 
@@ -203,6 +214,9 @@ If you encounter issues or have ideas for improvement, feel free to open an issu
 
 ---
 
-## 📄 License
+## 📄 Contribute
 
-[Add your license here]
+After cloning the repository, **rename the root folder** to `LabelsGeneratorRepo` (or any name different from `Labels Generator`).
+
+Using the same name for the repository root and the project folder can cause Visual Studio and NuGet resolution issues.
+
