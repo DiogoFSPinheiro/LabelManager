@@ -121,7 +121,7 @@ Configure external services:
 - Spell check (Apilayer Spell Checker API) API key
 - Translation (DeepL) API key
 
-![alt text](<Images/API Keys.png>)
+
 
 
 ### Language Mappings
