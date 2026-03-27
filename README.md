@@ -1,4 +1,4 @@
-# Labels Generator 
+# Labels Generator
 
 
 [![Labels Generator](Images/Icon_96.png)](https://marketplace.visualstudio.com/items?itemName=DiogoPinheiro.LabelManager)
@@ -28,12 +28,16 @@ It is designed to reduce context switching, prevent common mistakes, and keep la
 Labels Generator provides a dedicated **Tool Window** where labels can be created and managed without leaving your current context.
 
 Features include:
-- Label ID input and generation
+- Label ID input and auto-generation
 - Label text and description management
 - One-click label creation
 - Automatic copy of the label reference to the clipboard
+- **Recent Labels** — the last N created labels are kept in session for quick access (double-click to insert)
+- **Similar label detection** — warns when the entered text is too close to an existing label, showing both side by side so you can reuse or create anyway
 
 ![alt text](<Images/Tool Window – Centralized Label Creation.png>)
+
+![alt text](Images/labelDetectionDialog.png)
 
 ---
 
@@ -66,24 +70,24 @@ Features:
 
 ---
 
-## ✍️ Spell Checking and Label Corrections Support with Apilayer Spell Checker API
+## ✍️ Spell Checking and Label Corrections
 
-The extension includes built-in spell checking to detect and correct issues in label text.
+The extension includes built-in spell checking powered by **LanguageTool** to detect and correct issues in label text before they are committed.
 
 Capabilities:
-- Spell check validation via API
+- Spell check validation
 - Automatic fixes
-- Developer-assisted fixes 
+- Developer-assisted fixes with prompt before applying
 
 ![alt text](<Images/Spell Checking and Label Corrections.png>)
-
 
 ---
 
 ## 🔑 Automatic Label ID Management
 
 To prevent common label-related errors, Labels Generator includes:
-- Automatic label ID generation
+- **Smart label ID generation** — analyses the label text and produces a descriptive PascalCase ID (e.g. `VendorInactive`, `FieldMandatory`) using intent rules, domain vocabulary, and contraction normalisation
+- Numeric suffix fallback when a generated ID is already taken (`CustomerName` → `CustomerName2`)
 - Duplicate label ID detection
 - Validation before committing changes
 
@@ -91,9 +95,31 @@ This ensures label sets remain clean, consistent, and reliable across the projec
 
 ---
 
+## 🔄 Generate Labels Command
+
+The **Generate Labels** command translates new labels in bulk into all configured child language files.
+
+In 1.3.0 the workflow was improved with a selection dialog that lets you:
+- Choose which label file to use as the reference for detecting missing labels
+- Apply to **only that file** or **all files** (each file gets only its own missing labels — no duplicates)
+- Optionally **clear the selected file** before adding, which is useful when adding a new language mid-development
+
+![alt text](Images/generateLabelsDialog.png)
+
+---
+
+## ✂️ Trim Labels Command
+
+The **Trim Labels** command removes labels from child files that no longer exist in the master file, keeping all language files in sync.
+
+- Works correctly with any label ID prefix, not just `Label`-prefixed IDs
+- Requires the current model to be part of the selected package before running
+
+---
+
 ## ⚙️ Configuration Options
 
-Labels Generator is configurable through Visual Studio’s **Options** panel.
+Labels Generator is configurable through Visual Studio's **Options** panel.
 
 ### Source of Truth
 Define:
@@ -111,36 +137,36 @@ Control how labels are created and validated:
 - Automatic translation on creation
 - Translation validation before commit
 - Clipboard automation
-- Spell check behavior
-  
+- Spell check behavior and correction mode
+- **Max recent labels to remember** — how many recently created labels are kept in session
+- **Similarity threshold** — controls how close a label text must be to an existing one before a warning is shown (0.0–1.0, recommended: 0.60)
+
 ![alt text](<Images/Behavior Settings.png>)
 
 
 ### API Keys
 Configure external services:
-- Spell check (Apilayer Spell Checker API) API key
 - Translation (DeepL) API key
 
-
+![alt text](<Images/API Keys.png>)
 
 
 ### Language Mappings
-Define how source languages are mapped to target languages during translation.
-- Example: mapping `ar-sa` to `ar` ensures that content detected as `ar-sa` is translated to `ar`.
-
-
+Define how label file language codes map to DeepL target language codes.
+- Example: `pt` → `PT-PT`, `en` → `EN-GB`
+- Add and remove mappings directly from a form — changes save immediately
+- Use **Test Languages** to verify all mapped codes are supported by DeepL before running a translation
 
 ![alt text](<Images/Language Mappings.PNG>)
-
 
 ---
 
 ## 🧭 Menu Integration
 
 Labels Generator integrates directly into Visual Studio menus for quick access to common actions:
-- Generate labels – Useful for translating new labels in bulk when the “Automatic translation on creation” option is disabled.
-- Trim unused labels – Deletes labels that exist in slave label files but do not exist in the master file.
-- Open Create new labels Tool Window
+- **Generate Labels** – translates new labels in bulk into all child language files
+- **Trim Labels** – removes labels from child files that no longer exist in the master
+- **Open Create Label Tool Window**
 
 ![alt text](<Images/Menu Integration.png>)
 
@@ -174,7 +200,7 @@ All shortcuts can be customized through Visual Studio:
 
 **Tools → Options → Environment → Keyboard**
 
-Search for commands containing with:
+Search for commands containing:
 
 Label
 
@@ -202,14 +228,13 @@ You can reassign any shortcut to better match your personal workflow.
 
 - Visual Studio (compatible versions)
 - DeepL API key (for translation features)
-- Apilayer Spell Checker API (for Spell Check features)
 - Internet connection for API-based services
 
 ---
 
 ## 📣 Feedback & Contributions
 
-Feedback, bug reports, and feature suggestions are welcome.  
+Feedback, bug reports, and feature suggestions are welcome.
 If you encounter issues or have ideas for improvement, feel free to open an issue or start a discussion.
 
 ---
@@ -220,3 +245,75 @@ After cloning the repository, **rename the root folder** to `LabelsGeneratorRepo
 
 Using the same name for the repository root and the project folder can cause Visual Studio and NuGet resolution issues.
 
+---
+
+## 💼 TODOs
+
+
+---
+
+## 📋 Patch Notes
+
+### Label Manager version 1.2.0
+
+- Improvements & UI Enhancements
+
+New lines are now inserted at the top of the label instead of the bottom when appending.
+
+Text input now scrolls with the cursor inside the Label Manager window, making it easier to see what you're typing.
+
+Adjusted textbox sizes (Label ID, Description, Corrected Label) to ensure descenders (g, p, y, etc.) are fully visible.
+
+Refined the Label Manager window UI for a cleaner, more consistent look.
+
+- New Features
+
+Recent Labels: the last 5 generated labels are now saved for quick access.
+
+    Double-click a label to copy it and paste it where needed.
+
+- Behavior Changes
+
+Removed the warning shown on Visual Studio startup when the solution is not in the current model.
+
+        The warning is now displayed only when label creation is triggered.
+
+Spellcheck behavior improved:
+
+        Spellcheck options are now disabled (greyed out) unless Allow spellcheck is enabled.
+
+---
+
+### Label Manager version 1.3.0
+
+- Bug Fixes
+
+Fixed the Trim Labels command removing all labels from child files instead of only obsolete ones. The bug was caused by label lines being identified by `StartsWith("Label")`, which failed for any non-`Label`-prefixed ID (e.g. `OA`).
+
+Fixed the Generate Labels command incorrectly using the first child file as the reference, which could cause a newly created file to report no missing labels.
+
+Fixed the Similar Label dialog placing the label reference when Cancel was pressed, due to the decision checks being evaluated in the wrong order.
+
+- New Features
+
+Generate Labels — per-file target selection: a dialog now lets you choose which label file to use as the reference for detecting missing labels, with two modes: *Only this file* or *All files* (each file gets only its own missing labels). An option to clear the selected file before adding labels is also available.
+
+Label similarity detection: the Create Label tool window now warns when the entered label text is similar to an existing one, showing both labels side by side and letting you choose to copy the reference, create anyway, or cancel.
+
+Spellcheck reintroduced using LanguageTool (replaced the previous third-party API).
+
+Language Mapping options page reworked: redesigned with a proper add form (Source + Target fields) instead of inline DataGrid editing. Add and Remove now save immediately so mappings can be tested right away via the Test Languages button.
+
+Config — max recent labels & similarity threshold: both values are now configurable in Behavior Options instead of being hardcoded.
+
+Label ID auto-generator improvements: the generator now produces more descriptive IDs by prioritising domain objects before intent keywords (e.g. `VendorInactive` instead of `CannotBe`). Added contraction normalisation (`isn't` → `is not`), numeric suffix fallback when all candidates are taken, expanded domain and attribute vocabularies, crash guard on empty tokens, and new intent rules for `inactive`, `mandatory`, `cannot be empty`, and others.
+
+- Adjustments
+
+Similar label dialog now places the label reference directly into the file instead of copying to clipboard.
+
+All dialogs now spawn at the center of the screen.
+
+Package validation check added to the Trim Labels command.
+
+Font weight and size aligned across dialogs for visual consistency.
